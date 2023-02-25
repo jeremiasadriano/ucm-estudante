@@ -3,7 +3,7 @@
   --navcolor: #343a40;
   --red: #cd3f31;
   --fonte: "Calibri", sans-serif;
-  --main: #e7e7e8ee;
+  --section: #e8e9e9e5;
 }
 * {
   margin: 0;
@@ -90,11 +90,11 @@ main {
 section.section1 {
   display: block;
   margin: auto;
-  padding: 60px 190px;
+  padding: 40px 190px;
   position: absolute;
   top: 14%;
   /* border: 2px solid var(--main); */
-  background-color: var(--main);
+  background-color: var(--section);
   z-index: 1;
 }
 section .ucm-icon img {
@@ -132,12 +132,12 @@ section button a {
 section.noticia {
   display: block;
   position: absolute;
-  top: 53%;
+  top: 49%;
   margin: auto;
   padding: 60px 158px;
   /* top: 20%; */
   /* border: 2px solid var(--main); */
-  background-color: var(--main);
+  background-color: var(--section);
   z-index: 1;
 }
 
