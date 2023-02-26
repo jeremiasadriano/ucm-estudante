@@ -3,7 +3,10 @@
   --navcolor: #343a40;
   --red: #cd3f31;
   --fonte: "Calibri", sans-serif;
-  --section: #e8e9e9e5;
+  --section: #f1f2f2e8;
+  --textoSection: #33373a;
+  --cordoHRdoFooter: rgba(248, 248, 255, 0.425);
+  --hrcolor: rgba(248, 248, 255, 0.205);
 }
 * {
   margin: 0;
@@ -79,44 +82,66 @@ header .nav-bar nav ul li a {
   font-size: 14px;
   font-weight: normal;
 }
-/* Main */
 
+/* Main */
 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+/* Definindo propriedades gerais para as section */
+:is(section) {
+  color: var(--textoSection);
+  background-color: var(--section);
+}
+
+/* Section 1 da main */
 section.section1 {
   display: block;
   margin: auto;
-  padding: 40px 190px;
+  width: 60%;
+  height: 29%;
   position: absolute;
   top: 14%;
-  /* border: 2px solid var(--main); */
-  background-color: var(--section);
   z-index: 1;
 }
+/* Imagem da UCM */
 section .ucm-icon img {
   display: block;
   margin: auto;
+  width: 130px;
 }
-section .ucm-icon {
-  font-size: small;
-  margin: 6px 0px 6px 0px;
-  border-bottom: 1.4px solid #343a40;
+/* O texto de boas vindas da ucm com hr*/
+section .ucm-icon p {
+  display: block;
+  text-align: center;
+  font-size: 15px;
 }
+
+/* hr geral, modifica todos os hr's existentes na pagina*/
+hr {
+  display: block;
+  margin: 12px auto;
+  background-color: var(--navcolor);
+  height: 1px;
+  border-width: 0;
+  width: 95%;
+}
+/* abbr */
 section .butao-red abbr {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 12px;
+  margin-top: 19px;
+  cursor: help;
 }
 section button {
   display: block;
   margin: auto;
   margin-top: 20px;
-  padding: 10px 15px 10px 15px;
+  padding: 10px 15px;
   border: none;
   border-radius: 4px;
   background-color: var(--red);
@@ -124,49 +149,135 @@ section button {
   font-size: 15px;
   text-transform: uppercase;
   cursor: pointer;
+  transition: ease-in 0.2s;
+}
+section button:hover {
+  background-color: #b94237;
 }
 section button a {
   text-decoration: none;
   color: white;
 }
+/* A div responsável por todo o conteúdo do site */
+#content {
+  display: block;
+  margin-top: 12px;
+  z-index: 1 !important;
+}
+
+/* Section 2  da main*/
 section.noticia {
   display: block;
   position: absolute;
-  top: 49%;
+  top: 44%;
   margin: auto;
-  padding: 60px 158px;
+  width: 60%;
+  height: 20%;
   /* top: 20%; */
   /* border: 2px solid var(--main); */
-  background-color: var(--section);
   z-index: 1;
+}
+
+/* O h5 da segunda section */
+section.noticia h5 {
+  display: block;
+  font-size: 15px;
+  margin: 10px 0px 0px 29px;
+}
+
+/* Alterando os p da section com a class noticia-texto */
+section:has(.noticia-texto) p {
+  display: block;
+  margin: 8px 0px 0px 42px;
+  font-size: 14px;
+  font-style: italic;
+  color: #33373ac4;
+}
+section:has(.noticia-texto) img {
+  height: 14px;
 }
 
 /* Footer */
 footer {
   display: block;
   position: absolute;
-  top: 80%;
+  top: 74%;
   width: 100vw;
-  height: 200px;
+  height: 265px;
   margin: auto;
   background-color: var(--azul);
 }
-
-footer {
-  display: flex;
-  flex: 100%;
-  justify-content: center;
+/* Centralizando o footer */
+footer table {
+  display: block;
+  margin: auto;
+  width: 60%;
+  /* border: 3px #b94237 solid; */
 }
-footer .nav-footer nav ul {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-}
-footer .nav-footer nav ul li {
-  display: flex;
+footer .nav-footer th {
+  font-family: sans-serif;
+  text-align: left;
   color: white;
   text-transform: uppercase;
-  font-size: medium;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;
+  padding-left: 50px;
+  padding-top: 10px;
+}
+/* Aqui também alteramos a cor servico online text */
+footer .nav-footer td {
+  color: var(--cordoHRdoFooter);
+  font-size: 16px;
+  font-weight: 400;
+  width: 10%;
+  padding-left: 50px;
+}
+footer .nav-footer th:first-child {
+  padding-left: 10px;
+}
+footer .nav-footer td:first-child {
+  padding-left: 10px;
+}
+footer .nav-footer td:last-child {
+  padding-top: 12px;
+}
+
+footer .nav-footer td ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+footer .nav-footer td ul li {
+  color: white;
+  padding-top: 4px;
+  text-align: justify;
+}
+/* Icons do servico online no footer */
+div:has(.icons) a img {
+  background-color: white;
+  margin: 15px 10px 0px 0px;
+  border-radius: 5px;
+  padding: 3px;
+  z-index: 1 !important;
+  transition: ease-in 0.2s;
+}
+div:has(.icons) a img:hover {
+  background-color: rgba(0, 0, 255, 0.418);
+}
+
+/* hr do footer */
+:is(footer) hr {
+  border-width: 0;
+  background-color: var(--hrcolor);
+  width: 60%;
+  margin: 12px auto 2px auto;
+}
+
+/* Copyright */
+div:has(.copyright) p {
+  display: block;
+  margin: auto;
+  width: 60%;
+  color: var(--cordoHRdoFooter);
+  font-size: 14px;
 }
